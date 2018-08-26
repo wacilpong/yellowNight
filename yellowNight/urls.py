@@ -20,5 +20,6 @@ from yellowBot.views import keyboard
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'', keyboard, name='keyboard'),
     url(r'^keyboard/', keyboard, name='keyboard'),
 ]
