@@ -10,7 +10,7 @@ import django
 django.setup()
 
 ## BlogData를 import해옵니다
-from yellowBot.models import realtimedata
+from yellowBot.models import Realtimedata
 
 def parse_realtimekeyword():
     req = requests.get('https://www.naver.com/')
@@ -38,5 +38,5 @@ def parse_realtimekeyword():
 if __name__=='__main__':
     realtimekeyword = parse_realtimekeyword()
     for t, l in realtimekeyword.items():
-        realtimedata(title=t, link=l).save()
+        Realtimedata(title=t, link=l).save()
    

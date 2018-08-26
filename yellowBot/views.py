@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from yellowBot.models import realtimedata
+from yellowBot.models import Realtimedata
 import json, datetime
 
 # Create your views here.
@@ -18,10 +18,15 @@ def message(request):
     received_data = json.loads(data)
     # clicked_button = received_data['content']
     today = datetime.date.today().strftime("%m월 %d일")
-    
+    list = ''
+
+    for obj in Realtimedata.objects.all():
+        list += str(obj.title) + '(' + str(obj.link) + ')\n'
+        print(list)
+
     return JsonResponse({
             'message': {
-                'text': "오늘(" + today + ") 당신이 잠든 사이 N포털에서 가장 많이 검색한 키워드들을 확인해보세요!\n" + realtimedata.select()
+                'text': "오늘(" + today + ") 당신이 잠든 사이 N포털에서 가장 많이 검색한 키워드들을 확인해보세요!\n" + list
             },
             'keyboard': {
                   'type': 'buttons',

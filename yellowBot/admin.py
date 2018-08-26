@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import realtimedata
+from .models import Realtimedata
 # Register your models here.
-admin.site.register(realtimedata)
+admin.site.register(Realtimedata)

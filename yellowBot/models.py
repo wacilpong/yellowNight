@@ -1,9 +1,10 @@
 from django.db import models
+import sqlite3
 
 # Create your models here.
-class realtimedata(models.Model):
+class Realtimedata(models.Model):
     title = models.CharField(max_length=200)
     link = models.URLField()
 
-    def select(self):
-        return title + '(' + ling + ')'
+    def __select__(self):
+        return self.title + '(' + self.link + ')'
