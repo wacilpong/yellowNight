@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
 from yellowBot.views import keyboard
+from yellowBot.views import message
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'', keyboard, name='keyboard'),
+    url(r'^$', keyboard, name='keyboard'),
     url(r'^keyboard/', keyboard, name='keyboard'),
+    url(r'^message', message, name='message')
 ]
